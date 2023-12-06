@@ -53,7 +53,7 @@ def epiRA(base_ranks, item_ids, group_ids, bnd, grporder, agg_method):
 
        # Prevent infinite loops
        if repositions > ((num_items * (num_items - 1)) / 2):
-           print("Try decreasing the bound. If you notice the same pairs of items are being swapped back and forth you can try uncommenting lines with "same items swapped".")
+           print("Try decreasing the bound. If you notice the same pairs of items are being swapped back and forth you can try uncommenting lines with same items swapped.")
            return current_ranking, current_group_ids
            break
 
