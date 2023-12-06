@@ -53,7 +53,7 @@ def epiRA(base_ranks, item_ids, group_ids, bnd, grporder, agg_method):
 
        # Prevent infinite loops
        if repositions > ((num_items * (num_items - 1)) / 2):
-           print("Try increasing the bound")
+           print("Try decreasing the bound. If you notice the same pairs of items are being swapped back and forth you can try uncommenting lines with "same items swapped".")
            return current_ranking, current_group_ids
            break
 
@@ -87,7 +87,9 @@ def epiRA(base_ranks, item_ids, group_ids, bnd, grporder, agg_method):
        exp[np.argwhere(current_group_ids == grp_min_avg_exp).flatten()] = np.Inf
        exp[indx_highest_grp_min_item] = np.Inf #added 11/21
        indx = (np.abs(exp - boost)).argmin() #find position with closest exposure to boost
-
+       #if swapped[indx] == True: #swapping same item
+       #    while(swapped[indx] != False):
+       #        indx += 1
        min_grp_item = current_ranking[indx_highest_grp_min_item]
        print("min_grp_item",min_grp_item)
        swapping_item = current_ranking[indx]
